@@ -1,0 +1,28 @@
+{
+  "name": "wake-on-lan-network",
+  "version": "0.0.1",
+  "description": "This is a proyect to do Wake On to saveral computer, example computer's room",
+  "main": "WakeOnLan.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diegores14/Wake-On-Lan.git"
+  },
+  "keywords": [
+    "wakeonlan",
+    "wake",
+    "on",
+    "lan",
+    "saveral",
+    "room",
+    "computers"
+  ],
+  "author": "Diego Alejandro Restrepo Sanchez",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/Diegores14/Wake-On-Lan/issues"
+  },
+  "homepage": "https://github.com/Diegores14/Wake-On-Lan#readme"
+}
