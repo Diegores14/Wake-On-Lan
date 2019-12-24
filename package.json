@@ -1,10 +1,14 @@
 {
   "name": "wake-on-lan-network",
   "version": "0.0.1",
-  "description": "This is a proyect to do Wake On to saveral computer, example computer's room",
+  "description": "This is a project to do Wake On Lan to several computers, example computer's room",
   "main": "WakeOnLan.js",
+  "bin": {
+    "wake-on-lan": "./bin/wol"
+  },
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "fix": "standard --fix"
   },
   "repository": {
     "type": "git",
@@ -24,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/Diegores14/Wake-On-Lan/issues"
   },
-  "homepage": "https://github.com/Diegores14/Wake-On-Lan#readme"
+  "homepage": "https://github.com/Diegores14/Wake-On-Lan#readme",
+  "devDependencies": {
+    "standard": "^14.3.1"
+  }
 }
