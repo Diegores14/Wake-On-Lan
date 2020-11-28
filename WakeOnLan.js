@@ -1,8 +1,6 @@
 // const os = require('os')
 // const net = require('net')
 const dgram = require('dgram')
-const socket = dgram.createSocket('udp4')
-socket.unref()
 
 function createWOLPacket (mac) {
   mac = mac.replace(/:/g, '')
@@ -12,11 +10,19 @@ function createWOLPacket (mac) {
 }
 
 function sendPacket (data, numPackets, callback) {
+  let socket = dgram.createSocket('udp4')
   if (numPackets !== 0) {
     const mac = createWOLPacket(data.mac)
     const port = data.port || 9
-    const address = data.address
-    socket.send(mac, port, address, (err) => {
+    const address = data.address || '255.255.255.255'
+    const broadcast = data.broadcast || true
+
+    socket.bind( 0, () => { 
+      if ( broadcast ) 
+        socket.setBroadcast(true)
+    } )
+    socket.send(mac, 0, mac.length, port, address, (err) => {
+      socket.close()
       if (err) {
         if (callback) {
           callback(err)
@@ -27,6 +33,9 @@ function sendPacket (data, numPackets, callback) {
         setTimeout(sendPacket, 100, data, numPackets - 1, callback)
       }
     })
+  } else {
+    if( callback )
+      callback( null )
   }
 }
 
@@ -37,5 +46,7 @@ function wol(data, callback) {
   })
 }
 
+// wol( [ { mac: '1C:A0:B8:7F:94:9B', address: '192.168.213.255' } ] )
+wol( [ { mac: '1C:A0:B8:7F:94:9B' } ] )
 exports.wol = wol
 exports.createWOLPacket = createWOLPacket

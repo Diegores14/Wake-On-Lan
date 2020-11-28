@@ -3,13 +3,13 @@ This is a project to do Wake On Lan to several computers, example do wake on in 
 
 ## Installation
 ````bash
-In build
+work in progress
 ````
-## Synopsis
+
 ### wol(arrayObject[, callback])
 This function receive arrayObject and callback:
 * Example to arrayObject: [ address: '192.168.0.3', mac: 'AA:F5:F2:EA:E7:99', port: 9, numPackects: 3 ]
-* Cada Object have:
+* Each Object have:
 
 | Property | Description | Type | Example |
 | --- | --- | --- | --- |
@@ -20,13 +20,13 @@ This function receive arrayObject and callback:
 
 To wake a machine with a given mac address do:
 ````js
-const wakeOnLan = require('wakeOnLan')
+const wakeOnLan = require('WakeOnLan')
 
 let arrayObjects = [ address: '192.168.0.3', mac: 'AA:F5:F2:EA:E7:99', port: 9, numPackects: 3 ]
 wakeOnLan.wol(arrayObjects)
 
-wakeOnLan.wol(arrayObjects, error => {
-  if (error) {
+wakeOnLan.wol(arrayObjects, err => {
+  if ( err ) {
     // handle error
   } else {
     // done sending packets
@@ -46,5 +46,5 @@ You can write the mac in the next forms:
 
 ## Run command
 ````bash
-In build
+work in progress
 ````
